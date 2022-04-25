@@ -50,14 +50,14 @@
 		<div class="container">
 			<h1 class="my-5 text-center text-danger">Регистрация на сайте</h1>
 			<div class="col-md-5 mx-auto">
-				<form action="php/reg_obr.php" method="POST">
+				<form onsubmit="sendForm(this); return false;">
 					<div class="input-group mb-2">
 						<div class="input-group-prepend">
 							<div class="input-group-text">
 								<i class="fa-solid fa-user-astronaut fa-lg fa-fw"></i>
 							</div>
 						</div>
-						<input type="text" class="form-control" placeholder="Имя" required name="name"/>
+						<input type="text" class="form-control" placeholder="Имя" required name="name" />
 					</div>
 					<div class="input-group mb-2">
 						<div class="input-group-prepend">
@@ -65,14 +65,21 @@
 								<i class="fa-solid fa-user-astronaut fa-lg fa-fw"></i>
 							</div>
 						</div>
-						<input type="text" class="form-control" placeholder="Фамилия" required name="lastname"/>
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Фамилия"
+							required
+							name="lastname"
+						/>
 					</div>
 					<div class="input-group mb-2">
 						<div class="input-group-prepend">
 							<div class="input-group-text"><i class="fa-solid fa-envelope fa-lg fa-fw"></i></div>
 						</div>
-						<input type="email" class="form-control" placeholder="E-mail" required name="email"/>
+						<input type="email" class="form-control" placeholder="E-mail" required name="email" />
 					</div>
+					<p id="info"></p>
 					<div class="input-group mb-2">
 						<div class="input-group-prepend">
 							<div class="input-group-text"><i class="fa-solid fa-lock fa-lg fa-fw"></i></div>
@@ -105,6 +112,20 @@
 				</form>
 			</div>
 		</div>
+		<script>
+			async function sendForm(form) {
+				let response = await fetch("php/reg_obr.php", {
+					method: "POST",
+					body: new FormData(form),
+				});
+				let result = await response.text();
+				if (result == "ok") {
+					alert("Вы успешно зарегистрированы!");
+				} else {
+					info.innerHTML = "Такой пользователь уже существует!";
+				}
+			}
+		</script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
