@@ -14,7 +14,7 @@ if ($mysqli == false) {
   $pass = trim($_POST['pass']);
   $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-  $result = $mysqli->query("SELECT * FROM `users` WHERE `email` = '$email' ");
+  $result = $mysqli->query("SELECT * FROM `users` WHERE `email` = '$email'");
 
   //var_dump($result->num_rows);
   if ($result->num_rows !== 0) {
