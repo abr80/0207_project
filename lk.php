@@ -82,20 +82,24 @@
 			});
 			//Работаю с кнопкой save
 			save_buttons[i].addEventListener("click", async () => {
+
 				let newInputValue = edit_buttons[i].previousElementSibling.firstElementChild.value;
 				edit_buttons[i].previousElementSibling.innerText = newInputValue;
+
 				save_buttons[i].hidden = true;
 				cancel_buttons[i].hidden = true;
 				edit_buttons[i].hidden = false;
 
-				let FormData = new FormData();
-				FormData.append("value", newInputValue);
-				FormData.append("item", save_buttons[i].dataset.item);
+				let formData = new FormData();
+				formData.append("value", newInputValue);
+				formData.append("item", save_buttons[i].dataset.item);
 
 				let response = await fetch("php/lk_obr.php", {
 					method: "POST",
-					body: FormData,
+					body: formData,
+
 				})
+				//console.log(formData);
 			})
 
 			//Работаю с кнопкой cancel
