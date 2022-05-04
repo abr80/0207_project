@@ -49,6 +49,20 @@
     //   }
     //   document.getElementById(path + "Tab").classList.add("active");
     // })
+    addEventListener('popstate', event => {
+      let pathPop = location.pathname.split("/")[2]
+      if (pathPop == "profile") {
+        $('#profileTab').tab('show');
+        console.log(pathPop);
+      } else if (pathPop == "messages") {
+        $('#messagesTab').tab('show');
+        console.log(pathPop);
+      } else if (pathPop == "settings") {
+        $('#settingsTab').tab('show');
+        console.log(pathPop);
+      }
+    });
+
 
     if (path == "profile") {
       $('#v-pills-profile').tab('show');
