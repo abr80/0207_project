@@ -21,8 +21,70 @@
       </div>
       <div class="col-9">
         <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Страница с профилем</div>
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Страница с соообщениями</div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <div class="row mt-5">
+              <div class="col-sm-3"><img src="../../img/blog/author.png" alt="Фото пользователя"></div>
+              <div class="col-sm-9">
+                <h1>Петр Петров</h1>
+                <h2>О себе</h2>
+                <p>Не следует, однако, забывать, что курс на социально-ориентированный национальный проект, в своём классическом представлении, допускает внедрение как самодостаточных, так и внешне зависимых концептуальных решений. А также представители современных социальных резервов, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="col-3">
+                  <img src="../../img/blog/next.jpg" alt="">
+                </div>
+                <div class="col-9">
+                  <div>
+                    <h5>Юлия Семенова</h5>
+                    <p>Да, завтра могу встретиться.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-3">
+                  <img src="../../img/blog/author.png" width="50%" alt="">
+                </div>
+                <div class="col-9">
+                  <div>
+                    <h5>Петр Петров</h5>
+                    <p>Завтра как?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="col-3">
+                  <img src="../../img/blog/c5.jpg" alt="">
+                </div>
+                <div class="col-9">
+                  <div>
+                    <h5>Семен Семеныч</h5>
+                    <p>Поехали на рыбалку в выходные?</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-3">
+                  <img src="../../img/blog/author.png" width="50%" alt="">
+                </div>
+                <div class="col-9">
+                  <div>
+                    <h5>Петр Петров</h5>
+                    <p>Я за! Удочки брать?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8"><textarea  cols="40" rows="1"></textarea></div>
+              <div class="col-4"><button class="btn btn-warning">Отправить</button></div>
+            </div>
+          </div>
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Страница с настройками</div>
         </div>
       </div>
@@ -49,6 +111,7 @@
     //   }
     //   document.getElementById(path + "Tab").classList.add("active");
     // })
+    //Работаем с имторией по кнопкам в браузере
     addEventListener('popstate', event => {
       let pathPop = location.pathname.split("/")[2]
       if (pathPop == "profile") {
